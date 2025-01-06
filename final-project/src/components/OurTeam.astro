@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+import man1 from "../assets/pics/man1.png";
+import woman1 from "../assets/pics/woman1.png";
+import woman2 from "../assets/pics/woman2.png";
+import cathatman from "../assets/pics/cathatman.png";
+import LinkedIn from "../assets/icon/LinkedIn.svg";
+import Twitter from "../assets/icon/Twitter.svg";
+import Vector from "../assets/icon/Vector.svg";
+---
+
+<div>
+  <h2>Our Team</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+<div class="team-container">
+  <div class="team-member">
+    <Image src={man1} alt="Leslie Alexander" />
+    <h3>Leslie Alexander</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+      varius enim in eros elementum tristique.
+    </p>
+    <div class="social-links">
+      <LinkedIn width={24} height={24} />
+      <Twitter width={24} height={24} />
+      <Vector width={24} height={24} />
+    </div>
+  </div>
+  <div class="team-member">
+    <Image src={woman1} alt="Ralph Edwards" />
+    <h3>Ralph Edwards</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+      varius enim in eros elementum tristique.
+    </p>
+    <div class="social-links">
+      <LinkedIn width={24} height={24} />
+      <Twitter width={24} height={24} />
+      <Vector width={24} height={24} />
+    </div>
+  </div>
+  <div class="team-member">
+    <Image src={woman2} alt="Annette Black" />
+    <h3>Annette Black</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+      varius enim in eros elementum tristique.
+    </p>
+    <div class="social-links">
+      <LinkedIn width={24} height={24} />
+      <Twitter width={24} height={24} />
+      <Vector width={24} height={24} />
+    </div>
+  </div>
+  <div class="team-member">
+    <Image src={cathatman} alt="Savannah Nguyen" />
+    <h3>Savannah Nguyen</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+      varius enim in eros elementum tristique.
+    </p>
+    <div class="social-links">
+      <LinkedIn width={24} height={24} />
+      <Twitter width={24} height={24} />
+      <Vector width={24} height={24} />
+    </div>
+  </div>
+</div>
+
+<style>
+  .team-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+</style>
