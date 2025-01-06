@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import serviceimg1 from "../assets/pics/serviceimg1.png"
+import serviceimg2 from "../assets/pics/serviceimg2.png"
+import serviceimg3 from "../assets/pics/serviceimg3.png"
+import serviceimg4 from "../assets/pics/serviceimg4.png"
+import serviceimg5 from "../assets/pics/serviceimg5.png"
+import serviceimg6 from "../assets/pics/serviceimg6.png"
+---
+<div class="body">
+  <div class="title">
+    <h1>Our Services</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>  
+  </div>
+  <div class="container">
+    <div class="items">
+      <Image src={serviceimg1} alt="" />
+      <h4>One Bedroom Apartment</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+    </div>
+    <div class="items">
+      <Image src={serviceimg2} alt="" />
+      <h4>Window Cleaning</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+    </div>
+    <div class="items">
+      <Image src={serviceimg3} alt="" />
+      <h4>Residential Cleaning</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+    </div>
+    <div class="items">
+      <Image src={serviceimg4} alt="" />
+      <h4>Construction Cleaning</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+    </div>
+    <div class="items">
+      <Image src={serviceimg5} alt="" />
+      <h4>Commercial Cleaning</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+    </div>
+    <div class="items">
+      <Image src={serviceimg6} alt="" />
+      <h4>Two Bedroom Apartment</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+    </div>
+  </div>  
+</div>
+
+<style>
+  .body {
+    background-color: #F7F7F7;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 50px 0 0 0;
+  }
+
+  h1, h4 {
+    font-family: "Roboto";
+    font-weight: 700;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .container {
+    padding: 60px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 25px;
+    row-gap: 60px;
+  }
+
+  .items {
+    border: .5px solid #676767;
+    width: 416px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .items p {
+    padding: 0 40px;
+  }
+
+  @media (max-width:767px) {
+    
+  }
+</style>
