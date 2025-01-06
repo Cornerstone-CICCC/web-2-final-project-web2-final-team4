@@ -1,32 +1,48 @@
 ---
+import Facebook from "../assets/icon/Facebook.svg"
 import Instagram from "../assets/icon/Instagram.svg"
+import LinkedIn from "../assets/icon/LinkedIn.svg"
+import Twitter from "../assets/icon/Twitter.svg"
+import Logo from "../assets/logo.svg"
 ---
-<nav class="py-2 bg-light border-bottom">
-  <div class="container d-flex flex-wrap">
-    <ul class="nav me-auto">
-      <li class="nav-item"><span class="nav-link link-dark px-2 fw-bold">For emergency cases: 567 123 45 67</span></li>
-      <li class="nav-item"><span class="nav-link link-dark px-2">Location: 121 Wallstreet Street, NY , USA</span></li>
-      <li class="nav-item"><span class="nav-link link-dark px-2">Open hours: 9.00-24.00 Mon-Sat</span></li>
+<nav>
+  <div class="container d-flex flex-wrap py-2">
+    <ul class="contact nav me-auto">
+      <li class="nav-item border-end"><span class="nav-link link-dark px-2 fw-bold">For emergency cases: 567 123 45 67</span></li>
+      <li class="nav-item border-end"><span class="nav-link link-dark px-2">Location: 121 Wallstreet Street, NY , USA</span></li>
+      <li class="nav-item border-end"><span class="nav-link link-dark px-2">Open hours: 9.00-24.00 Mon-Sat</span></li>
       <li class="nav-item"><span class="nav-link link-dark px-2">Email:info@ddsgnr.com</span></li>
     </ul>
-    <div>
-      <Instagram width={25} height={25}/>
+    <div class="d-flex align-self-center gap-3">
+      <Facebook width={24} height={24}/>
+      <Instagram width={24} height={24}/>
+      <LinkedIn width={24} height={24}/>
+      <Twitter width={24} height={24}/>
     </div>
-    <ul class="nav">
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Sign up</a></li>
-    </ul>
   </div>
-  <div class="container d-flex flex-wrap">
-    <ul class="nav me-auto">
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
-    </ul>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="border-bottom border-top border-secondary">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between py-2">
+      <Logo height={30}/>
+        <ul class="nav ms-auto">
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Services</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Teams</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Contact</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-dark px-2 btn btn-dark">Request A Quote</a></li>
+          <li class="nav-item"><button class="btn btn-dark">Request A Quote</button></li>
+
+        </ul>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+    </div>
   </div>
 </nav>
+
+<style>
+.contact .nav-link{
+  font-size: 14px;
+  border-color: var(--dark-color);
+}
+</style>
