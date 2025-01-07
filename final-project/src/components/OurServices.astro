@@ -13,47 +13,54 @@ import serviceimg6 from "../assets/pics/serviceimg6.png"
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>  
   </div>
   <div class="container">
-    <div class="items">
-      <Image src={serviceimg1} alt="" />
-      <h4>One Bedroom Apartment</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+    <div class="row">
+      <div class="items visible">
+        <Image src={serviceimg1} alt="" class="img-fluid"/>
+        <h4>One Bedroom Apartment</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+      </div>
+      <div class="items visible">
+        <Image src={serviceimg2} alt="" class="img-fluid"/>
+        <h4>Window Cleaning</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+      </div>
+      <div class="items visible">
+        <Image src={serviceimg3} alt="" class="img-fluid"/>
+        <h4>Residential Cleaning</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+      </div>
+      <div class="items visible">
+        <Image src={serviceimg4} alt="" class="img-fluid"/>
+        <h4>Construction Cleaning</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+      </div>
+      <div class="items">
+        <Image src={serviceimg5} alt="" class="img-fluid"/>
+        <h4>Commercial Cleaning</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+      </div>
+      <div class="items">
+        <Image src={serviceimg6} alt="" class="img-fluid"/>
+        <h4>Two Bedroom Apartment</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+      </div>  
     </div>
-    <div class="items">
-      <Image src={serviceimg2} alt="" />
-      <h4>Window Cleaning</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-    </div>
-    <div class="items">
-      <Image src={serviceimg3} alt="" />
-      <h4>Residential Cleaning</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-    </div>
-    <div class="items">
-      <Image src={serviceimg4} alt="" />
-      <h4>Construction Cleaning</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-    </div>
-    <div class="items">
-      <Image src={serviceimg5} alt="" />
-      <h4>Commercial Cleaning</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-    </div>
-    <div class="items">
-      <Image src={serviceimg6} alt="" />
-      <h4>Two Bedroom Apartment</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+    <div class="text-center">
+      <button id="view-all-btn" class="btn btn-light view-all-btn">View All</button>
     </div>
   </div>  
 </div>
 
 <style>
   .body {
+    margin: 0;
+    padding: 20px;
     background-color: #F7F7F7;
   }
 
   h1 {
     margin: 0;
-    padding: 50px 0 0 0;
+    padding: 0 0 30px 0;
   }
 
   h1, h4 {
@@ -63,12 +70,10 @@ import serviceimg6 from "../assets/pics/serviceimg6.png"
 
   .title {
     text-align: center;
+    padding: 60px 0;
   }
 
-  .container {
-    padding: 60px;
-    display: grid;
-    grid-template-columns: auto auto auto;
+  .row {
     column-gap: 25px;
     row-gap: 60px;
   }
@@ -78,13 +83,62 @@ import serviceimg6 from "../assets/pics/serviceimg6.png"
     width: 416px;
     flex-direction: column;
     text-align: center;
+    padding: 0;
+  }
+
+  .img-fluid {
+    max-width: 100%;
+  }
+
+  .items h4 {
+    padding: 30px 0 10px 0;
+    margin: 0;
   }
 
   .items p {
     padding: 0 40px;
   }
 
-  @media (max-width:767px) {
-    
+  /* hide items in the beginning */
+  .items {
+    display: none;
+  }
+
+  /* mobile show 4 items */
+  .items.visible {
+    display: block;
+  }
+
+  .view-all-btn {
+    margin-top: 20px;
+    border: 1px solid #000000;
+    width: 100%;
   }
 </style>
+
+<script>
+  const viewButton = document.getElementById('view-all-btn');
+  const items = document.querySelectorAll('.items');
+  let isExpanded = false;
+  
+if(viewButton){
+  viewButton.addEventListener('click', () => {
+        if (isExpanded) {
+          // just show 4 items
+          items.forEach((item, index) => {
+            if (index < 4) {
+              item.classList.add('visible');
+            } else {
+              item.classList.remove('visible');
+            }
+          });
+          viewButton.textContent = 'View All';
+        } else {
+          // show everything
+          items.forEach(item => item.classList.add('visible'));
+          viewButton.textContent = 'View Less';
+        }
+        isExpanded = !isExpanded;
+      });
+    }
+</script>
