@@ -1,0 +1,14 @@
+---
+import Image from "astro/components/Image.astro";
+
+const { title, subTitle, imgUrl, hideImg = false, alt } = Astro.props;
+---
+
+<section class="container py-5">
+  <div>
+    <p class="mb-4">{subTitle}</p>
+    <h2 class="fw-bold">{title}</h2>
+    <slot />
+  </div>
+  <Image class=`d-none ${hideImg && "d-lg-block"}` src={imgUrl} alt={alt} />
+</section>
