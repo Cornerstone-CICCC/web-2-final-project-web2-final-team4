@@ -14,22 +14,26 @@ const serviceList = [
 const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evening" }, { label: "Night" }];
 ---
 
-<section class="container py-5">
-  <ContactUs title="Request a quote" subTitle="Contact us" imgUrl={cleaningwoman} alt="cleaningwoman" hideImg={true}>
+<div class="bg-secondary">
+  <ContactUs
+    title="Request a quote"
+    subTitle="Contact us"
+    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+    imgUrl={cleaningwoman}
+    alt="cleaningwoman"
+    hideImg={true}>
     <form class="needs-validation" novalidate>
-      <div class="row g-3">
+      <div class="row g-4">
         <!-- Full Name -->
         <div class="col-md-6">
           <label for="fullName" class="form-label">Full name</label>
           <input type="text" class="form-control" id="fullName" placeholder="Your full name" required />
-          <div class="invalid-feedback">Please provide a valid Full name.</div>
         </div>
 
         <!-- Phone Number -->
         <div class="col-md-6">
           <label for="phoneNumber" class="form-label">Phone number</label>
           <input type="tel" class="form-control" id="phoneNumber" placeholder="Your phone number" required />
-          <div class="invalid-feedback">Please provide a valid Phone number.</div>
         </div>
 
         <!-- Select Service -->
@@ -39,7 +43,6 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
             <option value="" selected disabled>Choose a service</option>
             {serviceList.map(({ label }) => <option value={label}>{label}</option>)}
           </select>
-          <div class="invalid-feedback">Please select a valid service.</div>
         </div>
 
         <!-- Select Time -->
@@ -49,7 +52,6 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
             <option value="" selected disabled>Choose a time</option>
             {timeList.map(({ label }) => <option value={label}>{label}</option>)}
           </select>
-          <div class="invalid-feedback">Please select a valid time.</div>
         </div>
 
         <!-- Message -->
@@ -65,7 +67,6 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
             <label class="form-check-label" for="acceptTerms">
               I accept the <a href="#">Terms</a>
             </label>
-            <div class="invalid-feedback">You must agree before submitting.</div>
           </div>
         </div>
 
@@ -76,8 +77,7 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
       </div>
     </form>
   </ContactUs>
-</section>
-
+</div>
 <script>
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   var forms = document.querySelectorAll(".needs-validation");
