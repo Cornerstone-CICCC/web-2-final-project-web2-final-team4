@@ -1,0 +1,61 @@
+<section class="container py-5">
+  <h2 class="fw-bold">Request a quote</h2>
+  <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+  <form>
+    <div class="row g-3">
+      <!-- Full Name -->
+      <div class="col-md-6">
+        <label for="fullName" class="form-label">Full name</label>
+        <input type="text" class="form-control" id="fullName" placeholder="Your full name" required />
+      </div>
+
+      <!-- Phone Number -->
+      <div class="col-md-6">
+        <label for="phoneNumber" class="form-label">Phone number</label>
+        <input type="tel" class="form-control" id="phoneNumber" placeholder="Your phone number" required />
+      </div>
+
+      <!-- Select Service -->
+      <div class="col-md-6">
+        <label for="selectService" class="form-label">Select service</label>
+        <select class="form-select" id="selectService" required>
+          <option value="" selected disabled>Choose a service</option>
+          <option value="service1">Service 1</option>
+          <option value="service2">Service 2</option>
+        </select>
+      </div>
+
+      <!-- Select Time -->
+      <div class="col-md-6">
+        <label for="selectTime" class="form-label">Select time</label>
+        <select class="form-select" id="selectTime" required>
+          <option value="" selected disabled>Choose a time</option>
+          <option value="morning">Morning</option>
+          <option value="afternoon">Afternoon</option>
+        </select>
+      </div>
+
+      <!-- Message -->
+      <div class="col-12">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="5" placeholder="Type your message..." required></textarea>
+      </div>
+
+      <!-- Terms -->
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="acceptTerms" required />
+          <label class="form-check-label" for="acceptTerms">
+            I accept the <a href="#">Terms</a>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="col-12">
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>
