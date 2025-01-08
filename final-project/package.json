@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "astro": "^5.1.2",
-    "astro-bootstrap": "^0.7.0",
-    "bootstrap": "^5.3.3"
+    "astro-bootstrap": "^0.7.0"
   }
 }

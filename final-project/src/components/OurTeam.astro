@@ -7,29 +7,30 @@ import cathatman from "../assets/pics/cathatman.png";
 import LinkedIn from "../assets/icon/LinkedIn.svg";
 import Twitter from "../assets/icon/Twitter.svg";
 import Vector from "../assets/icon/Vector.svg";
-import "bootstrap/dist/css/bootstrap.min.css";
 ---
 
-<div class="page-title">
-  <h2>Our Team</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-</div>
 <div class="container">
+  <div class="page-title">
+    <h2 class="fsm">Our team</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
   <div class="row">
     <div
       class="d-flex flex-wrap justify-content-center my-3 col-lg-6 flex-lg-nowrap align-items-center my-lg-5"
     >
-      <Image class="img-fluid" src={man1} alt="Leslie Alexander" />
+      <Image src={man1} alt="Leslie Alexander" />
       <div class="mx-3 d-block text-center text-lg-start texts">
         <h3>Leslie Alexander</h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           varius enim in eros elementum tristique.
         </p>
-        <div class="social-links">
-          <LinkedIn width={24} height={24} />
-          <Twitter width={24} height={24} />
-          <Vector width={24} height={24} />
+        <div
+          class="social-links d-flex justify-content-center justify-content-lg-start gap-3"
+        >
+          <a href=""><LinkedIn width={24} height={24} /></a>
+          <a href=""><Twitter width={24} height={24} /></a>
+          <a href=""><Vector width={24} height={24} /></a>
         </div>
       </div>
     </div>
@@ -43,10 +44,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           varius enim in eros elementum tristique.
         </p>
-        <div class="social-links">
-          <LinkedIn width={24} height={24} />
-          <Twitter width={24} height={24} />
-          <Vector width={24} height={24} />
+        <div
+          class="social-links d-flex justify-content-center justify-content-lg-start gap-3"
+        >
+          <a href=""><LinkedIn width={24} height={24} /></a>
+          <a href=""><Twitter width={24} height={24} /></a>
+          <a href=""><Vector width={24} height={24} /></a>
         </div>
       </div>
     </div>
@@ -60,10 +63,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           varius enim in eros elementum tristique.
         </p>
-        <div class="social-links">
-          <LinkedIn width={24} height={24} />
-          <Twitter width={24} height={24} />
-          <Vector width={24} height={24} />
+        <div
+          class="social-links d-flex justify-content-center justify-content-lg-start gap-3"
+        >
+          <a href=""><LinkedIn width={24} height={24} /></a>
+          <a href=""><Twitter width={24} height={24} /></a>
+          <a href=""><Vector width={24} height={24} /></a>
         </div>
       </div>
     </div>
@@ -78,17 +83,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           varius enim in eros elementum tristique.
         </p>
-        <div class="social-links">
-          <LinkedIn width={24} height={24} />
-          <Twitter width={24} height={24} />
-          <Vector width={24} height={24} />
+        <div
+          class="social-links d-flex justify-content-center justify-content-lg-start gap-3"
+        >
+          <a href=""><LinkedIn width={24} height={24} /></a>
+          <a href=""><Twitter width={24} height={24} /></a>
+          <a href=""><Vector width={24} height={24} /></a>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div id="view-all-container" class="d-lg-none text-center my-4">
-  <button id="view-all-btn" class="btn btn-light">View All</button>
+  <div id="view-all-container" class="d-lg-none text-center my-5">
+    <button id="view-all-btn" class="btn">View All</button>
+  </div>
 </div>
 
 <style>
@@ -96,42 +103,63 @@ import "bootstrap/dist/css/bootstrap.min.css";
     text-align: center;
     margin-bottom: 40px;
   }
-  .page-title h2 {
-    font-size: 48px;
-    padding-top: 112px;
+  @media (min-width: 992px) {
+    .container {
+      padding: 112px 0;
+    }
+  }
+  .fsm {
+    font-size: 32px;
     margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 57.6px;
+  }
+  @media (min-width: 992px) {
+    .fsm {
+      font-size: 48px;
+    }
+  }
+  .flex-wrap Image {
+    width: 380px;
+    height: 288px;
+    object-fit: cover;
   }
   .texts h3 {
     font-size: 20px;
     margin: 0;
     padding-bottom: 24px;
+    font-weight: 600;
   }
   .texts p {
     font-size: 16px;
     margin: 0;
     padding-bottom: 24px;
+    font-weight: 400;
   }
-  .view-all-btn {
-    margin-top: 20px;
-    border: 1px solid #000000;
-    width: 100%;
+  #view-all-btn {
+    padding: 12px 24px;
+    background-color: var(----light-color);
+    border: 1px solid var(--primary-color);
+    width: 80%;
   }
   .d-flex h3 {
     margin: 0;
-    padding-top: 16px;
+    padding-top: 24px;
   }
-  #view-all-container {
-    padding-bottom: 112px;
+  .d-flex img {
+    width: 100%;
+    height: 288px;
+    object-fit: cover;
   }
 </style>
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const viewAllButton = document.getElementById("view-all-btn");
-    const hiddenCard = document.getElementById("hidden-card");
+  const viewAllButton = document.getElementById("view-all-btn");
+  const hiddenCard = document.getElementById("hidden-card");
 
+  if (viewAllButton && hiddenCard) {
     viewAllButton.addEventListener("click", () => {
       hiddenCard.classList.remove("d-none");
       viewAllButton.style.display = "none";
     });
-  });
+  }
 </script>
