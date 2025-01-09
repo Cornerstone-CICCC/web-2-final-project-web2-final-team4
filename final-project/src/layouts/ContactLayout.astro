@@ -10,7 +10,7 @@ const { title, subTitle, text, imgUrl, hideImg = false, alt } = Astro.props;
       <div class="d-flex flex-column gap-3 mb-3 mb-lg-5">
         <h3 class="fw-bold">{subTitle}</h3>
         <h2 class="fs-1 fw-bold">{title}</h2>
-        <p>{text}</p>
+        <p class="text">{text}</p>
       </div>
       <slot />
     </div>
@@ -19,3 +19,9 @@ const { title, subTitle, text, imgUrl, hideImg = false, alt } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  .text {
+    line-height: 1.4em;
+  }
+</style>
