@@ -1,0 +1,143 @@
+---
+import { Image } from "astro:assets";
+import serviceimg1 from "../assets/pics/serviceimg1.png"
+import serviceimg2 from "../assets/pics/serviceimg2.png"
+import serviceimg3 from "../assets/pics/serviceimg3.png"
+import serviceimg4 from "../assets/pics/serviceimg4.png"
+import serviceimg5 from "../assets/pics/serviceimg5.png"
+import serviceimg6 from "../assets/pics/serviceimg6.png"
+---
+<div class="background">
+  <div class="container py-3">
+    <div class="title py-3">
+      <h1 class="mb-4 fs-1">Our Services</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>  
+    </div>  
+    <div class="row gy-4">
+      <div class="card items text-center visible">
+        <Image src={serviceimg1} alt="" class="img-fluid"/>
+        <div class="card-body p-3">
+          <h5 class="fs-5 p-3">One Bedroom Apartment</h5>
+          <p class="p-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>  
+        </div>
+      </div>
+      <div class="card items text-center visible">
+        <Image src={serviceimg2} alt="" class="img-fluid"/>
+        <div class="card-body p-3">
+          <h5 class="fs-5 p-3">Window Cleaning</h5>
+          <p class="p-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>  
+        </div>
+      </div>
+      <div class="card items text-center visible">
+        <Image src={serviceimg3} alt="" class="img-fluid"/>
+        <div class="card-body p-3">
+          <h5 class="fs-5 p-3">Residential Cleaning</h5>
+          <p class="p-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>  
+        </div>
+      </div>
+      <div class="card items text-center visible">
+        <Image src={serviceimg4} alt="" class="img-fluid"/>
+        <div class="card-body p-3">
+          <h5 class="fs-5 p-3">Construction Cleaning</h5>
+          <p class="p-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>  
+        </div>
+      </div>
+      <div class="card items text-center">
+        <Image src={serviceimg5} alt="" class="img-fluid"/>
+        <div class="card-body p-3">
+          <h5 class="fs-5 p-3">Commercial Cleaning</h5>
+          <p class="p-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>  
+        </div>
+      </div>
+      <div class="card items text-center">
+        <Image src={serviceimg6} alt="" class="img-fluid"/>
+        <div class="card-body p-3">
+          <h5 class="fs-5 p-3">Two Bedroom Apartment</h5>
+          <p class="p-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>  
+        </div>
+      </div>  
+    </div>
+    <div class="text-center">
+      <button id="view-all-btn" class="btn btn-light w-100 mt-3 view-all-btn">View All</button>
+    </div>
+  </div>    
+</div>
+
+<style>
+  .background {
+    background-color: var(--light-color);
+  }
+
+  .title {
+    text-align: center;
+    padding: 60px 0;
+  }
+
+  .row {
+    justify-content: space-around;
+    margin: 0;
+  }
+
+  .items {
+    border: .5px solid var(--dark-color);
+    width: 25rem;
+    padding: 0;
+    border-radius: 5px;
+  }
+
+  .img-fluid {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  /* hide items in the beginning */
+  .items {
+    display: none;
+  }
+
+  /* mobile show 4 items */
+  .items.visible {
+    display: block;
+  }
+
+  .view-all-btn {
+    border: 1px solid var(--primary-color);
+  }
+
+  @media (min-width: 1200px) {
+    .items {
+      display: block;
+    }
+    #view-all-btn {
+      display: none;
+    }
+  }
+
+</style>
+
+<script>
+  const viewButton = document.getElementById('view-all-btn');
+  const items = document.querySelectorAll('.items');
+  let isExpanded = false;
+  
+if(viewButton){
+  viewButton.addEventListener('click', () => {
+        if (isExpanded) {
+          // just show 4 items
+          items.forEach((item, index) => {
+            if (index < 4) {
+              item.classList.add('visible');
+            } else {
+              item.classList.remove('visible');
+            }
+          });
+          viewButton.textContent = 'View All';
+        } else {
+          // show everything
+          items.forEach(item => item.classList.add('visible'));
+          viewButton.textContent = 'View Less';
+        }
+        isExpanded = !isExpanded;
+      });
+    }
+</script>
