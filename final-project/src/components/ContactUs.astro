@@ -1,21 +1,104 @@
 ---
-import Image from "astro/components/Image.astro";
+import ContactLayout from "../layouts/ContactLayout.astro";
+import cleaningwoman from "../assets/pics/cleaningwoman.png";
 
-const { title, subTitle, text, imgUrl, hideImg = false, alt } = Astro.props;
+const serviceList = [
+  { label: "One Bedroom Apartment" },
+  { label: "Window Cleaning" },
+  { label: "Residential Cleaning" },
+  { label: "Construction Cleaning" },
+  { label: "Commercial Cleaning" },
+  { label: "Two Bedroom Apartment" },
+];
+
+const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evening" }, { label: "Night" }];
 ---
 
-<section class="container py-5">
-  <div class="row align-items-center">
-    <div class="col-12 col-lg-6">
-      <div class="d-flex flex-column gap-3 mb-5">
-        <h3 class="fw-bold">{subTitle}</h3>
-        <h2 class="fs-1 fw-bold">{title}</h2>
-        <p>{text}</p>
+<div class="bg-secondary">
+  <ContactLayout
+    title="Request a quote"
+    subTitle="Contact us"
+    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+    imgUrl={cleaningwoman}
+    alt="cleaningwoman"
+    hideImg={true}>
+    <form class="needs-validation" novalidate>
+      <div class="row g-4">
+        <!-- Full Name -->
+        <div class="col-md-6">
+          <label for="fullName" class="form-label">Full name</label>
+          <input type="text" class="form-control" id="fullName" placeholder="Your full name" required />
+        </div>
+
+        <!-- Phone Number -->
+        <div class="col-md-6">
+          <label for="phoneNumber" class="form-label">Phone number</label>
+          <input type="tel" class="form-control" id="phoneNumber" placeholder="Your phone number" required />
+        </div>
+
+        <!-- Select Service -->
+        <div class="col-md-6">
+          <label for="selectService" class="form-label">Select service</label>
+          <select class="form-select" id="selectService" required>
+            <option value="" selected disabled>Choose a service</option>
+            {serviceList.map(({ label }) => <option value={label}>{label}</option>)}
+          </select>
+        </div>
+
+        <!-- Select Time -->
+        <div class="col-md-6">
+          <label for="selectTime" class="form-label">Select time</label>
+          <select class="form-select" id="selectTime" required>
+            <option value="" selected disabled>Choose a time</option>
+            {timeList.map(({ label }) => <option value={label}>{label}</option>)}
+          </select>
+        </div>
+
+        <!-- Message -->
+        <div class="col-12">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="5" placeholder="Type your message..." required></textarea>
+        </div>
+
+        <!-- Terms -->
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="acceptTerms" required />
+            <label class="form-check-label" for="acceptTerms">
+              I accept the <a href="#">Terms</a>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-12">
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </div>
       </div>
-      <slot />
-    </div>
-    <div class=`col-6 d-none ${hideImg && "d-lg-block"}`>
-      <Image class=`w-100 h-100 object-fit-cover` src={imgUrl} alt={alt} />
-    </div>
-  </div>
-</section>
+    </form>
+  </ContactLayout>
+</div>
+<style>
+  .form-check-label {
+    line-height: 1.5;
+  }
+</style>
+<script>
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll(".needs-validation");
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      function (event: Event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+</script>
