@@ -9,17 +9,17 @@
         <div class="d-none d-md-block">
           <p>Join our newsletter to stay up to date on features and releases.</p>
           <div class="pb-0">
-          <form action="">
+            <form action="">
               <div class="d-flex gap-2">
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="email-input"
-                      placeholder="Enter your email"
-                    />
-                  <button type="button" class="btn" id="subscribe-button"> Subscribe </button>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email-input"
+                  placeholder="Enter your email"
+                />
+                <button type="button" class="btn" id="subscribe-button"> Subscribe </button>
               </div>
-           </form>
+            </form>
           </div>
           <p class="text-small">
             By subscribing you agree to with our <a href="#!" class="text-decoration-underline"
@@ -164,39 +164,37 @@
   // Subscription mail
   import emailjs from "@emailjs/browser";
 
-  document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init({
-      publicKey: "OMeyLonP6tEyaMxVg",
-    });
+  emailjs.init({
+    publicKey: "OMeyLonP6tEyaMxVg",
+  });
 
-    document.getElementById("subscribe-button")?.addEventListener("click", function () {
-      const emailInput = document.getElementById("email-input");
+  document.getElementById("subscribe-button")?.addEventListener("click", function () {
+    const emailInput = document.getElementById("email-input");
 
-      if (emailInput && emailInput instanceof HTMLInputElement) {
-        const email = emailInput.value;
-        // validation check
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-          alert("Please enter a valid email address.");
-          return;
-        }
-
-        emailjs
-          .send("service_uz36kw8", "template_ocvng8t", {
-            email: email,
-          })
-          .then(
-            function (response) {
-              console.log("SUCCESS!", response.status, response.text);
-              alert("Subscription successful!");
-            },
-            function (error) {
-              console.error("FAILED...", error);
-              alert("Subscription failed. Please try again.");
-            }
-          );
+    if (emailInput && emailInput instanceof HTMLInputElement) {
+      const email = emailInput.value;
+      // validation check
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
       }
-    });
+
+      emailjs
+        .send("service_uz36kw8", "template_ocvng8t", {
+          email: email,
+        })
+        .then(
+          function (response) {
+            console.log("SUCCESS!", response.status, response.text);
+            alert("Subscription successful!");
+          },
+          function (error) {
+            console.error("FAILED...", error);
+            alert("Subscription failed. Please try again.");
+          }
+        );
+    }
   });
 </script>
 
