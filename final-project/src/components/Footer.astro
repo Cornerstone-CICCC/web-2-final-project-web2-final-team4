@@ -3,23 +3,27 @@
     <div class="row">
       <div class="col-lg-6 col-md-12 mb-md-0 text-primary">
         <div class="d-flex align-items-center justify-content-center justify-content-md-start">
-          <img src="./src/assets/companylogo.svg" alt="Icon" width="32" height="30" />
+          <img src="./src/assets/logo.svg" alt="Icon" width="32" height="30" />
           <h4>Ddsgnr</h4>
         </div>
         <div class="d-none d-md-block">
           <p>Join our newsletter to stay up to date on features and releases.</p>
-
           <div class="container pb-0">
             <form action="">
               <div class="row">
                 <div class="col-md-9 col-12">
                   <div>
-                    <input type="email" class="form-control" placeholder="Enter your email" />
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email-input"
+                      placeholder="Enter your email"
+                    />
                   </div>
                 </div>
 
                 <div class="col-auto">
-                  <button type="button" class="btn"> Subscribe </button>
+                  <button type="button" class="btn" id="subscribe-button"> Subscribe </button>
                 </div>
               </div>
             </form>
@@ -36,7 +40,6 @@
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <h6>About Us</h6>
-
             <ul class="list-unstyled">
               <li>
                 <a href="#!">Home</a>
@@ -58,7 +61,6 @@
 
           <div class="col-lg-4 col-md-6">
             <h6>Services</h6>
-
             <ul class="list-unstyled">
               <li>
                 <a href="#!">Window</a>
@@ -80,7 +82,6 @@
 
           <div class="col-lg-4 col-md-6">
             <h6>Follow Us</h6>
-
             <ul class="list-unstyled">
               <li class="d-flex align-items-center">
                 <img src="./src/assets/icon/Facebook.svg" alt="Icon" width="24" height="24" />
@@ -102,6 +103,8 @@
           </div>
         </div>
       </div>
+
+      <!-- mobile -->
       <div class="d-md-none">
         <ul class="list-group list-group-horizontal justify-content-center mobile-menu">
           <li>
@@ -150,19 +153,59 @@
         <p class="col-12 col-lg-4 text-center text-lg-start">2025 Ddsgnr. All right reserved.</p>
         <ul class="list-group list-group-horizontal">
           <li class="list-group-item border-0 p-0 mx-1">
-            <a href="" class="text-decoration-underline no-wrap text-sm">Privacy Policy</a>
+            <a href="" class="text-decoration-underline no-wrap text-small">Privacy Policy</a>
           </li>
           <li class="list-group-item border-0 p-0 mx-1">
-            <a href="" class="text-decoration-underline no-wrap text-sm">Terms of Service</a>
+            <a href="" class="text-decoration-underline no-wrap text-small">Terms of Service</a>
           </li>
           <li class="list-group-item border-0 p-0 mx-1">
-            <a href="" class="text-decoration-underline no-wrap text-sm">Cookies Settings</a>
+            <a href="" class="text-decoration-underline no-wrap text-small">Cookies Settings</a>
           </li>
         </ul>
       </div>
     </div>
   </div>
 </footer>
+
+<script>
+  // Subscription mail
+  import emailjs from "@emailjs/browser";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init({
+      publicKey: "OMeyLonP6tEyaMxVg",
+    });
+
+    document.getElementById("subscribe-button")?.addEventListener("click", function () {
+      const emailInput = document.getElementById("email-input");
+
+      if (emailInput && emailInput instanceof HTMLInputElement) {
+        const email = emailInput.value;
+        // validation check
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+
+        emailjs
+          .send("service_uz36kw8", "template_ocvng8t", {
+            email: email,
+          })
+          .then(
+            function (response) {
+              console.log("SUCCESS!", response.status, response.text);
+              alert("Subscription successful!");
+            },
+            function (error) {
+              console.error("FAILED...", error);
+              alert("Subscription failed. Please try again.");
+            }
+          );
+      }
+    });
+  });
+</script>
 
 <style>
   button,
@@ -211,7 +254,7 @@
   .mobile-menu {
     font-size: 0.9rem;
     font-weight: bold;
-    margin: 1.5rem 1rem 0rem;
+    margin: 1rem 0rem;
     padding: 0 1.5rem;
   }
   .full-width {
@@ -219,8 +262,5 @@
   }
   .no-wrap {
     white-space: nowrap;
-  }
-  .text-sm {
-    font-size: 0.875rem;
   }
 </style>
