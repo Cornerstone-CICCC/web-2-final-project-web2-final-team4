@@ -16,7 +16,7 @@ import Vector from "../assets/icon/Vector.svg";
   </div>
   <div class="row">
     <div
-      class="d-flex flex-wrap justify-content-center my-3 col-lg-6 flex-lg-nowrap align-items-center my-lg-5"
+      class="d-flex flex-wrap justify-content-center mt-3 col-lg-6 flex-lg-nowrap align-items-center mb-lg-3 mt-lg-5"
     >
       <Image src={man1} alt="Leslie Alexander" />
       <div class="mx-3 d-block text-center text-lg-start texts">
@@ -35,7 +35,7 @@ import Vector from "../assets/icon/Vector.svg";
       </div>
     </div>
     <div
-      class="d-flex flex-wrap justify-content-center my-3 col-lg-6 flex-lg-nowrap align-items-center my-lg-5"
+      class="d-flex flex-wrap justify-content-center mt-3 col-lg-6 flex-lg-nowrap align-items-center mb-lg-3 mt-lg-5"
     >
       <Image src={woman1} alt="Ralph Edwards" />
       <div class="mx-3 d-block text-center text-lg-start texts">
@@ -54,7 +54,7 @@ import Vector from "../assets/icon/Vector.svg";
       </div>
     </div>
     <div
-      class="d-flex flex-wrap justify-content-center my-3 col-lg-6 flex-lg-nowrap align-items-center my-lg-5"
+      class="d-flex flex-wrap justify-content-center mt-3 col-lg-6 flex-lg-nowrap align-items-center mb-lg-3 mt-lg-5"
     >
       <Image src={woman2} alt="Annette Black" />
       <div class="texts d-block text-center text-lg-start mx-3">
@@ -74,7 +74,7 @@ import Vector from "../assets/icon/Vector.svg";
     </div>
     <div
       id="hidden-card"
-      class="d-flex flex-wrap justify-content-center d-none my-3 col-lg-6 flex-lg-nowrap align-items-center my-lg-5 d-lg-flex"
+      class="d-flex flex-wrap justify-content-center d-none mt-3 col-lg-6 flex-lg-nowrap align-items-center mb-lg-3 mt-lg-5 d-lg-flex"
     >
       <Image src={cathatman} alt="Savannah Nguyen" />
       <div class="texts d-block text-center text-lg-start mx-3">
@@ -93,41 +93,44 @@ import Vector from "../assets/icon/Vector.svg";
       </div>
     </div>
   </div>
-  <div id="view-all-container" class="d-lg-none text-center my-5">
+  <div id="view-all-container" class="d-lg-none text-center">
     <button id="view-all-btn" class="btn">View All</button>
   </div>
 </div>
 
 <style>
+  .container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  /* .row > * {
+    padding: 0;
+  } */
   .page-title {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
-  @media (min-width: 992px) {
-    .container {
-      padding: 112px 0;
-    }
-  }
+
   .fsm {
     font-size: 32px;
     margin-bottom: 10px;
     font-weight: 700;
     line-height: 57.6px;
   }
-  @media (min-width: 992px) {
-    .fsm {
-      font-size: 48px;
-    }
+  .mt-3 {
+    margin-bottom: 48px;
   }
-  .flex-wrap Image {
+  /* .flex-wrap Image {
     width: 380px;
     height: 288px;
     object-fit: cover;
-  }
+  } */
   .texts h3 {
     font-size: 20px;
     margin: 0;
-    padding-bottom: 24px;
+    padding-bottom: 16px;
     font-weight: 600;
   }
   .texts p {
@@ -140,16 +143,27 @@ import Vector from "../assets/icon/Vector.svg";
     padding: 12px 24px;
     background-color: var(----light-color);
     border: 1px solid var(--primary-color);
-    width: 80%;
+    width: 100%;
   }
-  .d-flex h3 {
+  .d-block h3 {
     margin: 0;
-    padding-top: 24px;
+    padding-top: 32px;
   }
   .d-flex img {
     width: 100%;
     height: 288px;
     object-fit: cover;
+  }
+  @media (min-width: 992px) {
+    .fsm {
+      font-size: 48px;
+    }
+    .container {
+      padding: 112px 0;
+    }
+    .d-block h3 {
+      padding-top: 0;
+    }
   }
 </style>
 <script>
