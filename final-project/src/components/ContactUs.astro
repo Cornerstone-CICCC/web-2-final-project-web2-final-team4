@@ -72,18 +72,14 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
 
         <!-- Submit Button -->
         <div class="col-12">
-          <button type="submit" class="btn btn-dark">Submit</button>
+          <button id="submit" type="submit" class="btn btn-dark">Submit</button>
         </div>
       </div>
     </form>
   </ContactLayout>
 </div>
-<style>
-  .form-check-label {
-    line-height: 1.5;
-  }
-</style>
 <script>
+  // -- validation --
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   var forms = document.querySelectorAll(".needs-validation");
 
@@ -100,5 +96,19 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
       },
       false
     );
+  });
+
+  // -- EmailJS --
+  document.getElementById("submit")?.addEventListener("click", function () {
+    const fullName = document.getElementById("fullName");
+    const phoneNumber = document.getElementById("phoneNumber");
+    const selectTime = document.getElementById("selectTime");
+    const message = document.getElementById("message");
+
+    // TODO: delete these console.log
+    console.log(fullName);
+    console.log(phoneNumber);
+    console.log(selectTime);
+    console.log(message);
   });
 </script>
