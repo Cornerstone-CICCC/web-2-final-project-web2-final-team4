@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+import heroimg from "../assets/pics/heroImg.jpeg"
+---
+<div class="container-fluid">
+  <div class="letter">
+    <div>
+      <h1 class="fs-1">A Clean Home,</h1>
+      <h1 class="fs-1">A Happy Life,</h1>
+      <h1 class="fs-1">Let Us Handle the Dirty Work!</h1>
+      <p>We develop innovative design solutions that enable our clients to enhance their competitive advantage.</p>  
+    </div>
+    <div>
+      <button class="btn btn-dark">Request A Quote</button>
+      <button class="btn btn-outline-dark">Learn More</button>
+    </div>  
+  </div>
+  <div class="img">
+    <Image src={heroimg} alt="hero img" class="heroimg" />
+  </div>    
+</div>
+
+<style>
+.container-fluid {
+  display: flex;  
+  align-items: center; 
+  justify-content: space-between;
+}
+
+.letter {
+  flex: 1;             
+  padding-right: 20px;     
+}
+
+.img {
+  flex-shrink: 0;
+}
+
+.heroimg {
+  width: 720px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .container-fluid {
+    flex-direction: column;
+  }
+
+  .letter {
+    padding-right: 0;        
+    margin-bottom: 20px;    
+  }
+
+  .img {
+    width: 100%;      
+  }
+
+  .heroimg {
+    width: 100%;    
+    height: auto;
+  }
+}
+</style>
