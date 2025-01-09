@@ -18,8 +18,8 @@ const socialLinks = [
   { href: "mailto:info@ddsgnr.com", icon: Mail },
   { href: "#", icon: Facebook },
   { href: "#", icon: Instagram },
-  { href: "#", icon: LinkedIn },
   { href: "#", icon: Twitter },
+  { href: "#", icon: LinkedIn },
 ];
 ---
 
@@ -46,7 +46,7 @@ const socialLinks = [
       <div class="d-flex align-self-center gap-3">
         {
           socialLinks.map(({ href, icon: Icon }) => (
-            <a href={href}>
+            <a href={href} class={`d-block ${href === "mailto:info@ddsgnr.com" ? "d-xl-none" : ""}`}>
               <Icon width={24} height={24} />
             </a>
           ))
