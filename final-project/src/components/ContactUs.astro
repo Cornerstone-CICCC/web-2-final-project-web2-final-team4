@@ -107,10 +107,10 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
 
   // -- EmailJS --
   document.getElementById("submit")?.addEventListener("click", function () {
-    const fullName = document.getElementById("fullName");
-    const phoneNumber = document.getElementById("phoneNumber");
-    const selectTime = document.getElementById("selectTime");
-    const message = document.getElementById("message");
+    const fullName = (document.getElementById("fullName") as HTMLInputElement | null)?.value;
+    const phoneNumber = (document.getElementById("phoneNumber") as HTMLInputElement | null)?.value;
+    const selectTime = (document.getElementById("selectTime") as HTMLInputElement | null)?.value;
+    const message = (document.getElementById("message") as HTMLInputElement | null)?.value;
 
     // TODO: delete these console.log
     console.log(fullName);
