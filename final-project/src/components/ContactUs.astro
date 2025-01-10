@@ -72,7 +72,7 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
 
         <!-- Submit Button -->
         <div class="col-12">
-          <button id="submit" type="submit" class="btn btn-dark">Submit</button>
+          <button id="submit" type="submit" class="submit-btn btn btn-dark">Submit</button>
         </div>
       </div>
     </form>
@@ -82,6 +82,14 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
 <style>
   .form-check-label {
     line-height: 1.6;
+  }
+  .submit-btn {
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    .submit-btn {
+      width: fit-content;
+    }
   }
 </style>
 
