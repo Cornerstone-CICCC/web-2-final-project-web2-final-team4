@@ -1,0 +1,179 @@
+---
+import { Image } from "astro:assets";
+import man1 from "../assets/pics/man1.png";
+import woman1 from "../assets/pics/woman1.png";
+import woman2 from "../assets/pics/woman2.png";
+import cathatman from "../assets/pics/cathatman.png";
+import LinkedIn from "../assets/icon/LinkedIn.svg";
+import Twitter from "../assets/icon/Twitter.svg";
+import Vector from "../assets/icon/Vector.svg";
+---
+
+<div class="container">
+  <div class="page-title">
+    <h2 class="fsm">Our team</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div class="row">
+    <div
+      class="d-flex flex-wrap justify-content-center mt-3 col-lg-6 flex-lg-nowrap align-items-center mb-lg-3 mt-lg-5"
+    >
+      <Image src={man1} alt="Leslie Alexander" />
+      <div class="mx-3 d-block text-center text-lg-start texts">
+        <h3>Leslie Alexander</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          varius enim in eros elementum tristique.
+        </p>
+        <div
+          class="social-links d-flex justify-content-center justify-content-lg-start gap-3"
+        >
+          <a href=""><LinkedIn width={24} height={24} /></a>
+          <a href=""><Twitter width={24} height={24} /></a>
+          <a href=""><Vector width={24} height={24} /></a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="d-flex flex-wrap justify-content-center mt-3 col-lg-6 flex-lg-nowrap align-items-center mb-lg-3 mt-lg-5"
+    >
+      <Image src={woman1} alt="Ralph Edwards" />
+      <div class="mx-3 d-block text-center text-lg-start texts">
+        <h3>Ralph Edwards</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          varius enim in eros elementum tristique.
+        </p>
+        <div
+          class="social-links d-flex justify-content-center justify-content-lg-start gap-3"
+        >
+          <a href=""><LinkedIn width={24} height={24} /></a>
+          <a href=""><Twitter width={24} height={24} /></a>
+          <a href=""><Vector width={24} height={24} /></a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="d-flex flex-wrap justify-content-center mt-3 col-lg-6 flex-lg-nowrap align-items-center mb-lg-3 mt-lg-5"
+    >
+      <Image src={woman2} alt="Annette Black" />
+      <div class="texts d-block text-center text-lg-start mx-3">
+        <h3>Annette Black</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          varius enim in eros elementum tristique.
+        </p>
+        <div
+          class="social-links d-flex justify-content-center justify-content-lg-start gap-3"
+        >
+          <a href=""><LinkedIn width={24} height={24} /></a>
+          <a href=""><Twitter width={24} height={24} /></a>
+          <a href=""><Vector width={24} height={24} /></a>
+        </div>
+      </div>
+    </div>
+    <div
+      id="hidden-card"
+      class="d-flex flex-wrap justify-content-center d-none mt-3 col-lg-6 flex-lg-nowrap align-items-center mb-lg-3 mt-lg-5 d-lg-flex"
+    >
+      <Image src={cathatman} alt="Savannah Nguyen" />
+      <div class="texts d-block text-center text-lg-start mx-3">
+        <h3>Savannah Nguyen</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          varius enim in eros elementum tristique.
+        </p>
+        <div
+          class="social-links d-flex justify-content-center justify-content-lg-start gap-3"
+        >
+          <a href=""><LinkedIn width={24} height={24} /></a>
+          <a href=""><Twitter width={24} height={24} /></a>
+          <a href=""><Vector width={24} height={24} /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="view-all-container" class="d-lg-none text-center">
+    <button id="view-all-btn" class="btn">View All</button>
+  </div>
+</div>
+
+<style>
+  .container {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  /* .row > * {
+    padding: 0;
+  } */
+  .page-title {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .fsm {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 57.6px;
+  }
+  .mt-3 {
+    margin-bottom: 48px;
+  }
+  /* .flex-wrap Image {
+    width: 380px;
+    height: 288px;
+    object-fit: cover;
+  } */
+  .texts h3 {
+    font-size: 20px;
+    margin: 0;
+    padding-bottom: 16px;
+    font-weight: 600;
+  }
+  .texts p {
+    font-size: 16px;
+    margin: 0;
+    padding-bottom: 24px;
+    font-weight: 400;
+  }
+  #view-all-btn {
+    padding: 12px 24px;
+    background-color: var(----light-color);
+    border: 1px solid var(--primary-color);
+    width: 100%;
+  }
+  .d-block h3 {
+    margin: 0;
+    padding-top: 32px;
+  }
+  .d-flex img {
+    width: 100%;
+    height: 288px;
+    object-fit: cover;
+  }
+  @media (min-width: 992px) {
+    .fsm {
+      font-size: 48px;
+    }
+    .container {
+      padding: 112px 0;
+    }
+    .d-block h3 {
+      padding-top: 0;
+    }
+  }
+</style>
+<script>
+  const viewAllButton = document.getElementById("view-all-btn");
+  const hiddenCard = document.getElementById("hidden-card");
+
+  if (viewAllButton && hiddenCard) {
+    viewAllButton.addEventListener("click", () => {
+      hiddenCard.classList.remove("d-none");
+      viewAllButton.style.display = "none";
+    });
+  }
+</script>
