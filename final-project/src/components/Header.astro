@@ -1,0 +1,184 @@
+---
+import Ddsgnr from "../assets/ddsgnr.svg";
+import Mail from "../assets/icon/Mail.svg";
+import Facebook from "../assets/icon/Facebook.svg";
+import Instagram from "../assets/icon/Instagram.svg";
+import LinkedIn from "../assets/icon/LinkedIn.svg";
+import Twitter from "../assets/icon/Twitter.svg";
+
+const navLinks = [
+  { href: "#", label: "Home" },
+  { href: "#", label: "About" },
+  { href: "#", label: "Services" },
+  { href: "#", label: "Teams" },
+  { href: "#", label: "Contact" },
+];
+
+const socialLinks = [
+  { href: "mailto:info@ddsgnr.com", icon: Mail },
+  { href: "#", icon: Facebook },
+  { href: "#", icon: Instagram },
+  { href: "#", icon: Twitter },
+  { href: "#", icon: LinkedIn },
+];
+---
+
+<nav class="nav-bar">
+  <!-- info -->
+  <div class="border-bottom d-none d-lg-block">
+    <div class="container d-flex flex-wrap py-2">
+      <ul class="info-nav nav me-auto">
+        <li class="nav-item">
+          <span class="nav-link link-dark px-2 fw-bold">For emergency cases: 567 123 45 67</span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link link-dark px-2">Location: 121 Wallstreet Street, NY , USA</span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link link-dark px-2">
+            <span class="d-none d-xl-inline-block">Open hours:&nbsp;</span>9.00-24.00 Mon-Sat
+          </span>
+        </li>
+        <li class="nav-item d-none d-xl-inline-block">
+          <span class="nav-link link-dark px-2">Email: info@ddsgnr.com</span>
+        </li>
+      </ul>
+      <div class="d-flex align-self-center gap-3">
+        {
+          socialLinks.map(({ href, icon: Icon }) => (
+            <a href={href} class={`d-block ${href === "mailto:info@ddsgnr.com" ? "d-xl-none" : ""}`}>
+              <Icon width={24} height={24} />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Nav -->
+  <div class="main-nav border-bottom">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between py-3">
+      <Ddsgnr height={30} />
+      <div class="d-none d-lg-flex">
+        <ul class="nav ms-auto gap-3 me-4">
+          {
+            navLinks.map(({ href, label }) => (
+              <li class="nav-item">
+                <a href={href} class="nav-link link-dark px-2">
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <button class="btn btn-dark px-3">Request A Quote</button>
+      </div>
+      <button type="button" class="js-hamburger-btn navbar-toggle d-lg-none">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Hamburger Menu -->
+  <div class="js-hamburger-nav navbar-collapse d-lg-none border-bottom">
+    <div class="container d-flex flex-column py-4 gap-4 text-center">
+      <ul class="nav flex-column gap-2">
+        {
+          navLinks.map(({ href, label }) => (
+            <li class="nav-item">
+              <a href={href} class="nav-link link-dark px-2">
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="d-flex justify-content-center my-2 gap-3">
+        {
+          socialLinks.map(({ href, icon: Icon }) => (
+            <a href={href}>
+              <Icon width={24} height={24} />
+            </a>
+          ))
+        }
+      </div>
+      <button class="btn btn-dark">Request A Quote</button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const hamburgerBtn = document.querySelector(".js-hamburger-btn");
+  const hamburgerMenu = document.querySelector(".js-hamburger-nav");
+
+  if (hamburgerBtn && hamburgerMenu) {
+    hamburgerBtn.addEventListener("click", function () {
+      hamburgerBtn.classList.toggle("active");
+      hamburgerMenu.classList.toggle("open");
+    });
+  }
+</script>
+
+<style>
+  .info-nav .nav-item {
+    font-size: 14px;
+  }
+  .info-nav li:nth-child(n + 2) {
+    border-left: 1px solid var(--dark-color);
+  }
+
+  /* hamburger btn */
+  .navbar-toggle .icon-bar {
+    background-color: var(--primary-color);
+  }
+
+  .navbar-toggle .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
+
+  .navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+  }
+
+  .navbar-toggle .icon-bar {
+    position: relative;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .navbar-toggle.active .icon-bar:nth-of-type(1) {
+    top: 6px;
+    transform: rotate(45deg);
+  }
+
+  .navbar-toggle.active .icon-bar:nth-of-type(2) {
+    background-color: transparent;
+  }
+
+  .navbar-toggle.active .icon-bar:nth-of-type(3) {
+    top: -6px;
+    transform: rotate(-45deg);
+  }
+
+  /* hamburger nav */
+  .navbar-collapse {
+    display: flex;
+    margin-top: -1px;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--light-color);
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Open State */
+  .navbar-collapse.open {
+    margin-top: 0;
+    max-height: 100vh;
+  }
+</style>
