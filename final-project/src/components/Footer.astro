@@ -1,0 +1,257 @@
+<footer>
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-md-0 pe-md-5 text-primary">
+        <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+          <img src="./src/assets/logo.svg" alt="Icon" width="32" height="30" />
+          <h4>Ddsgnr</h4>
+        </div>
+        <div class="d-none d-md-block">
+          <p>Join our newsletter to stay up to date on features and releases.</p>
+          <div class="pb-0">
+            <form action="">
+              <div class="d-flex gap-2">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email-input"
+                  placeholder="Enter your email"
+                />
+                <button type="button" class="btn" id="subscribe-button"> Subscribe </button>
+              </div>
+            </form>
+          </div>
+          <p class="text-small">
+            By subscribing you agree to with our <a href="#!" class="text-decoration-underline"
+              >Privacy Policy</a
+            > and provide consent to receive updates from our company.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-12 d-none d-md-block">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <h6>About Us</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Home</a>
+              </li>
+              <li>
+                <a href="#!">About</a>
+              </li>
+              <li>
+                <a href="#!">Services</a>
+              </li>
+              <li>
+                <a href="#!">Teams</a>
+              </li>
+              <li>
+                <a href="#!">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <h6>Services</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Window</a>
+              </li>
+              <li>
+                <a href="#!">Residential</a>
+              </li>
+              <li>
+                <a href="#!">Commercial</a>
+              </li>
+              <li>
+                <a href="#!">Apartment</a>
+              </li>
+              <li>
+                <a href="#!">Residential</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <h6>Follow Us</h6>
+            <ul class="list-unstyled">
+              <li class="d-flex align-items-center">
+                <img src="./src/assets/icon/Facebook.svg" alt="Icon" width="24" height="24" />
+                <a href="#!" class="text-sns ms-2">Facebook</a>
+              </li>
+              <li class="d-flex align-items-center">
+                <img src="./src/assets/icon/Instagram.svg" alt="Icon" width="24" height="24" />
+                <a href="#!" class="text-sns ms-2">Instagram</a>
+              </li>
+              <li class="d-flex align-items-center">
+                <img src="./src/assets/icon/Twitter.svg" alt="Icon" width="24" height="24" />
+                <a href="#!" class="text-sns ms-2">Twitter</a>
+              </li>
+              <li class="d-flex align-items-center">
+                <img src="./src/assets/icon/LinkedIn.svg" alt="Icon" width="24" height="24" />
+                <a href="#!" class="text-sns ms-2">LinkedIn</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- mobile -->
+      <div class="d-md-none">
+        <ul class="list-group list-group-horizontal justify-content-center mobile-menu">
+          <li>
+            <a href="#!">About</a>
+          </li>
+          <li>
+            <a href="#!">Project</a>
+          </li>
+          <li>
+            <a href="#!">Contact</a>
+          </li>
+          <li>
+            <a href="#!">Services</a>
+          </li>
+        </ul>
+
+        <ul class="list-group list-group-horizontal justify-content-center mobile-icon">
+          <li class="list-group-item border-0 p-0 mx-1">
+            <a href="#!"
+              ><img src="./src/assets/icon/Facebook.svg" alt="Icon" width="24" height="24" /></a
+            >
+          </li>
+          <li class="list-group-item border-0 p-0 mx-1">
+            <a href="#!"
+              ><img src="./src/assets/icon/Instagram.svg" alt="Icon" width="24" height="24" /></a
+            >
+          </li>
+          <li class="list-group-item border-0 p-0 mx-1">
+            <a href="#!"
+              ><img src="./src/assets/icon/Twitter.svg" alt="Icon" width="24" height="24" /></a
+            >
+          </li>
+          <li class="list-group-item border-0 p-0 mx-1">
+            <a href="#!"
+              ><img src="./src/assets/icon/LinkedIn.svg" alt="Icon" width="24" height="24" /></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="botoom-footer">
+      <div
+        class="d-flex flex-wrap justify-content-center justify-content-md-center justify-content-lg-between align-items-center border-top"
+      >
+        <p class="col-12 col-lg-4 text-center text-lg-start">2025 Ddsgnr. All right reserved.</p>
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item border-0 p-0 mx-1">
+            <a href="" class="text-decoration-underline no-wrap text-small">Privacy Policy</a>
+          </li>
+          <li class="list-group-item border-0 p-0 mx-1">
+            <a href="" class="text-decoration-underline no-wrap text-small">Terms of Service</a>
+          </li>
+          <li class="list-group-item border-0 p-0 mx-1">
+            <a href="" class="text-decoration-underline no-wrap text-small">Cookies Settings</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Subscription mail
+  import emailjs from "@emailjs/browser";
+
+  emailjs.init({
+    publicKey: "OMeyLonP6tEyaMxVg",
+  });
+
+  document.getElementById("subscribe-button")?.addEventListener("click", function () {
+    const emailInput = document.getElementById("email-input");
+
+    if (emailInput && emailInput instanceof HTMLInputElement) {
+      const email = emailInput.value;
+      // validation check
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      emailjs
+        .send("service_uz36kw8", "template_ocvng8t", {
+          email: email,
+        })
+        .then(
+          function (response) {
+            console.log("SUCCESS!", response.status, response.text);
+            alert("Subscription successful!");
+          },
+          function (error) {
+            console.error("FAILED...", error);
+            alert("Subscription failed. Please try again.");
+          }
+        );
+    }
+  });
+</script>
+
+<style>
+  button,
+  input {
+    background-color: var(--secondary-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    margin-left: 0;
+  }
+  button:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
+  .form-control,
+  .btn {
+    padding: 0.75rem 0.75rem;
+  }
+  p {
+    margin: 1.5rem 0;
+  }
+  .text-small {
+    font-size: 0.9rem;
+  }
+  h4 {
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin: 1rem 0.5rem;
+  }
+  .list-unstyled li {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  h6 {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+  .text-sns {
+    display: inline-flex;
+    align-items: center;
+  }
+  .list-group li {
+    margin: 1rem 1rem;
+  }
+  .mobile-menu {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 1rem 0rem;
+    padding: 0 1.5rem;
+  }
+  .full-width {
+    width: 100%;
+  }
+  .no-wrap {
+    white-space: nowrap;
+  }
+</style>

@@ -2,63 +2,41 @@
 import { Image } from "astro:assets";
 import heroimg from "../assets/pics/heroImg.jpeg"
 ---
-<div class="container-fluid">
-  <div class="letter">
-    <div class="">
+
+<div class="container-fluid px-0">
+  <div class="row align-items-center">
+    <div class="col-lg-6 left-items">
       <h1 class="fs-1 fw-bold">A Clean Home,<br>A Happy Life,<br>Let Us Handle the Dirty Work!</h1>
       <p class="pt-4 pb-4">We develop innovative design solutions that enable our clients to enhance their competitive advantage.</p>  
+      <div class="btn-container d-flex gap-2">
+        <button class="btn btn-dark">Request A Quote</button>
+        <button class="btn btn-outline-dark">Learn More</button>
+      </div>
     </div>
-    <div class="btn-container">
-      <button class="btn btn-dark">Request A Quote</button>
-      <button class="btn btn-outline-dark">Learn More</button>
-    </div>  
+    <div class="col-lg-6 px-0">
+      <Image src={heroimg} alt="hero img" class="img-fluid hero-img" />
+    </div>
   </div>
-  <div class="img">
-    <Image src={heroimg} alt="hero img" class="heroimg" />
-  </div>    
 </div>
 
 <style>
-.container-fluid {
-  display: flex;  
-  align-items: center; 
-  justify-content: space-between;
+.left-items {
+  padding: 50px;
 }
 
-.letter {
-  flex: 1;             
-  padding: 0 70px;     
+.hero-img {
+  max-height: 100vh; 
+  object-fit: cover;
 }
 
-.img {
-  flex-shrink: 0;
-}
-
-.heroimg {
-  width: 720px;
-  height: auto;
-}
-
-.btn-container {
-  display: flex;
-  gap: 10px;
-}
-
-@media (max-width: 768px) {
-  .container-fluid {
-    flex-direction: column;
+@media (max-width: 992px) {
+  .left-items {
+    padding: 20px;
   }
 
-  .letter {
-    padding: 20px 0;  
-  }
-
-  .img {
-    width: 100%;      
-  }
-
-  .heroimg {
-    width: 100%;    
+  .hero-img {
+    padding: 20px; 
+    max-width: 100%;
     height: auto;
   }
 }
