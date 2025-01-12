@@ -11,7 +11,12 @@ const serviceList = [
   { label: "Two Bedroom Apartment" },
 ];
 
-const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evening" }, { label: "Night" }];
+const timeList = [
+  { label: "Morning" },
+  { label: "Afternoon" },
+  { label: "Evening" },
+  { label: "Night" },
+];
 ---
 
 <div class="bg-secondary">
@@ -21,19 +26,32 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
     imgUrl={cleaningwoman}
     alt="cleaningwoman"
-    hideImg={true}>
+    hideImg={true}
+  >
     <form class="needs-validation" novalidate>
       <div class="row g-4">
         <!-- Full Name -->
         <div class="col-md-6">
           <label for="fullName" class="form-label">Full name</label>
-          <input type="text" class="form-control" id="fullName" placeholder="Your full name" required />
+          <input
+            type="text"
+            class="form-control"
+            id="fullName"
+            placeholder="Your full name"
+            required
+          />
         </div>
 
         <!-- Phone Number -->
         <div class="col-md-6">
           <label for="phoneNumber" class="form-label">Phone number</label>
-          <input type="tel" class="form-control" id="phoneNumber" placeholder="Your phone number" required />
+          <input
+            type="tel"
+            class="form-control"
+            id="phoneNumber"
+            placeholder="Your phone number"
+            required
+          />
         </div>
 
         <!-- Select Service -->
@@ -57,7 +75,12 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
         <!-- Message -->
         <div class="col-12">
           <label for="message" class="form-label">Message</label>
-          <textarea class="form-control" id="message" rows="5" placeholder="Type your message..." required></textarea>
+          <textarea
+            class="form-control"
+            id="message"
+            rows="5"
+            placeholder="Type your message..."
+            required></textarea>
         </div>
 
         <!-- Terms -->
@@ -94,6 +117,7 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
 </style>
 
 <script>
+  import emailjs from "@emailjs/browser";
   // -- validation --
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   var forms = document.querySelectorAll(".needs-validation");
@@ -106,24 +130,45 @@ const timeList = [{ label: "Morning" }, { label: "Afternoon" }, { label: "Evenin
         if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
+        } else {
+          event.preventDefault();
+
+          // -- EmailJS --
+          const fullName = (document.getElementById("fullName") as HTMLInputElement | null)?.value;
+          const phoneNumber = (document.getElementById("phoneNumber") as HTMLInputElement | null)
+            ?.value;
+          const selectService = (
+            document.getElementById("selectService") as HTMLInputElement | null
+          )?.value;
+          const selectTime = (document.getElementById("selectTime") as HTMLInputElement | null)
+            ?.value;
+          const message = (document.getElementById("message") as HTMLInputElement | null)?.value;
+
+          emailjs.init({
+            publicKey: "OMeyLonP6tEyaMxVg",
+          });
+          emailjs
+            .send("service_uz36kw8", "template_kuxvx3l", {
+              fullName: fullName,
+              phoneNumber: phoneNumber,
+              selectService: selectService,
+              selectTime: selectTime,
+              message: message,
+            })
+            .then(
+              function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+                alert("Submit successful!");
+              },
+              function (error) {
+                console.error("FAILED...", error);
+                alert("Submit failed. Please try again.");
+              }
+            );
         }
         form.classList.add("was-validated");
       },
       false
     );
-  });
-
-  // -- EmailJS --
-  document.getElementById("submit")?.addEventListener("click", function () {
-    const fullName = (document.getElementById("fullName") as HTMLInputElement | null)?.value;
-    const phoneNumber = (document.getElementById("phoneNumber") as HTMLInputElement | null)?.value;
-    const selectTime = (document.getElementById("selectTime") as HTMLInputElement | null)?.value;
-    const message = (document.getElementById("message") as HTMLInputElement | null)?.value;
-
-    // TODO: delete these console.log
-    console.log(fullName);
-    console.log(phoneNumber);
-    console.log(selectTime);
-    console.log(message);
   });
 </script>
