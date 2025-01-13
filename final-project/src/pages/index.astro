@@ -1,8 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import OurServices from "../components/OurServices.astro";
+import OurTeam from "../components/OurTeam.astro";
+import SubscribeNewsletter from "../components/SubscribeNewsletter.astro";
+import AboutUs from "../components/AboutUs.astro";
+import ContactUs from "../components/ContactUs.astro";
 import HeroImage from "../components/HeroImage.astro";
+import SmallForm from "../components/SmallForm.astro";
+import Banner from "../components/Banner.astro";
+
 ---
 
 <Layout>
   <HeroImage />
+  <SmallForm />
+  <OurServices />
+  <AboutUs />
+  <section id="team">
+    <OurTeam />
+  </section>
+  <ContactUs />
+  <Banner />
+  <SubscribeNewsletter />
 </Layout>
