@@ -58,7 +58,9 @@ const socialLinks = [
   <!-- Main Nav -->
   <div class="main-nav border-bottom">
     <div class="container d-flex flex-wrap align-items-center justify-content-between py-3">
-      <Ddsgnr height={30} />
+      <a href="/">
+        <Ddsgnr height={30} />
+      </a>
       <div class="d-none d-lg-flex">
         <ul class="nav ms-auto gap-3 me-4">
           {
@@ -113,6 +115,9 @@ const socialLinks = [
   const hamburgerBtn = document.querySelector(".js-hamburger-btn");
   const hamburgerMenu = document.querySelector(".js-hamburger-nav");
 
+  const handle = (event:Event) => {
+    event.preventDefault();
+  };
   if (hamburgerBtn && hamburgerMenu) {
     hamburgerBtn.addEventListener("click", function () {
       hamburgerBtn.classList.toggle("active");
@@ -122,6 +127,15 @@ const socialLinks = [
 </script>
 
 <style>
+  @media (max-width: 992px) {
+    .nav-bar{
+      z-index: 100;
+      position: sticky;
+      top: 0;
+      background-color: var(--secondary-color);
+    }
+  }
+
   .info-nav .nav-item {
     font-size: 14px;
   }
@@ -166,6 +180,7 @@ const socialLinks = [
 
   /* hamburger nav */
   .navbar-collapse {
+    z-index: 99;
     display: flex;
     margin-top: -1px;
     max-height: 0;
