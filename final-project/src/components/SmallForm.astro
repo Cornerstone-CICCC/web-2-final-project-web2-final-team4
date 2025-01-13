@@ -1,25 +1,56 @@
 <div class="container">
-  <form>
+  <form action="">
     <div class="items pt-5 pb-5">
       <div class="text-box">
-        <label for="fullname" class="form-label">Full name</label>
-        <input type="text" class="form-control" id="fullname" aria-describedby="emailHelp">
+        <label for="fullName" class="form-label">Full name</label>
+        <input type="text" class="form-control" id="fullName" aria-describedby="emailHelp" />
       </div>
       <div class="text-box">
-        <label for="phonenumber" class="form-label">Phone Number</label>
-        <input type="text" class="form-control" id="phonenumber">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phoneNumber" />
       </div>
       <div class="text-box">
         <label for="comment" class="form-label">Comment</label>
-        <input type="text" class="form-control" id="comment">
+        <input type="text" class="form-control" id="comment" />
       </div>
       <div class="d-flex align-items-end">
-        <button type="submit" class="btn btn-dark">Request A Quote</button>  
+        <button type="submit" class="btn btn-dark" id="submit">Request A Quote</button>
       </div>
     </div>
   </form>
 </div>
+<script>
+  import emailjs from "@emailjs/browser";
 
+  document.getElementById("submit")?.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const fullName = (document.getElementById("fullName") as HTMLInputElement | null)?.value;
+    const phoneNumber = (document.getElementById("phoneNumber") as HTMLInputElement | null)?.value;
+    const message = (document.getElementById("comment") as HTMLInputElement | null)?.value;
+    console.log(fullName, phoneNumber, message);
+
+    emailjs.init({
+      publicKey: "OMeyLonP6tEyaMxVg",
+    });
+    emailjs
+      .send("service_uz36kw8", "template_kuxvx3l", {
+        fullName: fullName,
+        phoneNumber: phoneNumber,
+        message: message,
+      })
+      .then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+          alert("Submit successful!");
+        },
+        function (error) {
+          console.error("FAILED...", error);
+          alert("Submit failed. Please try again.");
+        }
+      );
+  });
+</script>
 <style>
   .items {
     display: flex;
